@@ -1,9 +1,7 @@
 setcpm(33/4)
-$:s(`[metal:3, rim hh hh] [oh hh hh] [oh hh hh] [oh hh hh] jazz:1 
-[metal:3, rim hh hh] [oh hh hh] [oh hh hh] [oh hh hh] [oh hh hh] [jazz:1]*3
-[metal:3, rim hh hh] [oh hh hh] [oh hh hh] [oh hh hh] jazz:1 
-[metal:3, rim hh hh] [oh hh hh] [oh hh hh] [oh hh hh] [oh hh hh] [jazz:1]*3,
-[bd, 9000_perc:3] - - - - [bd, 9000_perc:3] - - - - -
-[bd, 9000_perc:3] - - - - [bd, 9000_perc:3] - - - - -,
+$:s(`[metal:3, rim hh hh, 9000_perc:3] [oh hh hh] [oh hh hh] [oh hh hh] jazz:1 
+[metal:3, rim hh hh, 9000_perc:3] [oh hh hh] [oh hh hh] [oh hh hh] [oh hh hh] [jazz:1]*3
+[metal:3, rim hh hh, 9000_perc:3] [oh hh hh] [oh hh hh] [oh hh hh] jazz:1 
+[metal:3, rim hh hh, 9000_perc:3] [oh hh hh] [oh hh hh] [oh hh hh] [oh hh hh] [jazz:1]*3,
 casio:1*11
 `).decay(`1 0.05 0.05 0.05 1 1 0.05 0.05 0.05 0.05 1 1 0.05 0.05 0.05 1 1 0.05 0.05 0.05 0.05 1`)
