@@ -1,0 +1,8 @@
+$: s("bd - sd - oh bd sd -").fast(2).bank("RolandTR909").dec(0.3).room(0.1).gain(0.6).lpf("2000")
+$: s("bd - - - - bd - -").fast(2).bank("RolandTR909").gain(0.4).lpf(1600)
+$: s("hh * 16").bank("RolandTR909").dec(0.2).gain(0.4).room(0.1).lpf(1600).hpf(300)
+
+$: note("<[45@6 47@2 48@3 47@3 45@2] [40@8 38@3 40@3 41@2] [40@8 38@3 40@3 41@2] [40@16]>".add(36)).sound("sawtooth").lpf(sine.range(1000, 1200).fast(2)).attack(0).sustain(0.2).decay(1).gain(0.5).room(1)
+$: note("<[47@8 48@8] <[45@16] [43@16]>>".add(-12)).sound("supersaw").lpf(800).room(0.1).gain(1)
+$: note("<[47@8 48@8] <[45@16] [43@16]>>".add(0)).sound("supersaw").lpf(800).room(0.1).gain(1)
+$: note("<[47@8 48@8] <[45@16] [43@16]>>".add(4)).sound("supersaw").hpf(200).lpf(1000).room(0.1).gain(2)
