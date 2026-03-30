@@ -2,21 +2,21 @@ setcpm(80/2)
 
 //const b = s("bd - - - - bd - -").bank("RolandTR606")
 const hh = s("sd").bank("RolandTR606")
-const a = s("-@4 oh - hh cr hh cr hh - oh - hh hh").bank("RolandTR606").decay(0.15).release(0.1)
-const b = s("[lt,hh] - [lt,hh] - sd -@7 sd -@3").bank("RolandTR606").decay(0.2)
+const a = s("-@4 oh - hh cr hh cr hh - oh - hh hh").bank("RolandTR606").decay(0.15).release(0.1).room(0.2)
+const b = s("[lt,hh] - [lt,hh] - sd -@7 sd -@3").bank("RolandTR606").decay(0.2).room(0.2)
 
-const c = s("<[bd - bd -@13] [bd - bd -@3 bd -@5 bd -@3]>").bank("RolandTR909")
-const d = s("[lt,mt,cp] - [lt,mt,<cp ->] - [sd,cr,oh,<- cp>] -@5 [sd,cr,oh,cp] -@5").bank("RolandTR909").decay(0.1)
-const e = s("-@6 oh hh oh hh -@2 oh hh oh hh").bank("RolandTR909").decay(0.05)
+const c = s("<[bd - bd -@13] [bd - bd -@3 bd -@5 bd -@3]>").bank("RolandTR909").room(0)
+const d = s("[lt,mt,cp] - [lt,mt] - [sd,cr,oh,<- cp>] -@5 [sd,cr,oh,cp] -@5").bank("RolandTR909").decay(0.1).room(0.3)
+const e = s("-@6 oh hh oh hh -@2 oh hh oh hh").bank("RolandTR909").decay(0.05).room(0.4)
 
 
 const semi_base = stack(
   note("- - - - 31@2 31@2".add(0)).sound("supersaw").lpf(500).attack(0.1).decay(0.4),
-  note("31 31 - 31 -@2 -@2 ").sound("supersaw").lpf(500).attack(0.1).decay(0.2)
-  )
+  note("31@4 -@2 -@2 ").sound("supersaw").lpf(500).attack(0.1).decay(1).release(0.5)
+  ).room(0.5)
 
 //const hook_1 = note("<[24 - - - 24 - 24 - - - 24 - 24 - - -] [31 -@15] [-@16] [-@16]>".add(31)).sound("gm_banjo").delay(0.25)
-const hook_1 = note("<[24 - - - 24 - 24 - - - 24 - 24 - - -] [31 -@15] [-@16] [32 - - - 32 - 32 32 32 - 32 32 32 - 34 -]>".add(31)).sound("gm_banjo").delay(0.3)
+const hook_1 = note("<[24 -@3 24 - 24 -@3 24 - 24 -@3] [31 -@15] [-@16] [32@4 32@2 32 32 32 - 32 32 32 - 34 -]>".add(31)).sound("gm_banjo").delay(0.3).room(1)
 
 // hh cr bd ht lt oh sd
 
@@ -25,12 +25,12 @@ const beat_1 = stack(
   //b,
   //hh.fast(2).gain(0.3)
   a.gain(0.5).lpf(3000),
-  b.gain(0.3).hpf(300).lpf(5000),
+  b.gain(0.3).hpf(300).lpf(4000),
   semi_base.gain(0.5),
 )
 
 const beat_2 = stack(
-  c.lpf(4000).gain(0.5),
+  c.hpf(100).lpf(4000).gain(0.5),
   d.lpf(4000).gain(0.5),
   e.lpf(4000).gain(0.35),
   semi_base.gain(1),
@@ -46,7 +46,11 @@ const tune_2 = stack(
   hook_1.gain(1).lpf(2000)
 )
 
-$: arrange(
+//$: tune_1
+//$: tune_2
+
+
+arrange(
   [8, tune_1],
   [16, tune_2],
 )
